@@ -1,0 +1,202 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500&family=VT323&display=swap');
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    position: relative;
+    font-family: 'Roboto Mono', monospace;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 1%;
+}
+
+.result {
+    font-size: 4rem;
+    text-align: center;
+    height: 12vh;
+}
+
+.result > p {
+    font-size: 1rem;
+    text-transform: uppercase;
+}
+.container {
+    width: 40%;
+    min-width: 350px;
+    max-width: 500px;
+    padding: 1.3rem 0.4rem;
+    
+    
+    border: 8px outset white;
+    
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2%;
+    background-color: #C0C0C0;
+}
+
+.top {
+    padding: 0.5rem 0;
+    width: 95%;
+    border: 8px inset gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 0 0 1.5rem 0;
+}
+
+.points, .countdown {
+    height: 4rem;
+    width: 8rem;
+    background-color: black;    
+    
+   display: flex;
+   align-items: center;
+   justify-content: center;
+    border: 1px inset white;
+   margin: 0 0.5rem;
+    
+}
+
+.counter, .timer {
+    font-size: 4rem;
+    color: #CB0005;
+   
+}
+
+.countdown {
+    width: 6rem;
+}
+
+.smile {
+    
+    background-color: #C0C0C0;
+    
+    
+    
+    
+}
+
+.smile > i {
+    
+    padding: 1.8rem 1rem;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    object-fit: contain;
+}
+
+
+
+#happy {
+    color: yellow;
+    
+    
+    border: 3px outset gainsboro;
+    
+}
+
+#sad {
+    display: none;
+    border: '3px inset gainsboro';
+   
+}
+
+
+#happy:active {
+    border: 3px inset gainsboro;    
+    color: #CB0005;
+}
+
+
+
+
+
+
+
+
+
+
+.grid {
+    
+    width: 95%;
+  
+    border: 8px inset gainsboro;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.grid > div {
+    flex-basis: calc(100% / 10);
+    width: calc(95% / 10);
+    aspect-ratio: 1 / 1;
+    border: 3px outset white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+/* .grid > div:active {
+
+        border: 3px inset gainsboro;    
+        color: #CB0005;
+
+} */
+
+.grid > div > .bomb {
+    display: none;
+}
+
+.bo {
+    border: 3px inset gainsboro;    
+    color: #CB0005;
+}
+
+label {
+    font-size: 2.5rem;
+    color: #ffffff;
+}
+
+select {
+    font-size: 1.5rem;
+    background-color: #C0C0C0;
+    color: black;
+    border: 5px outset gainsboro; 
+    padding: 0.4rem 0.6rem; 
+    font-weight: bold;  
+
+}
+
+select:focus, select:active, select:hover {
+    border: 5px inset gainsboro;  
+
+}
+
+select > option {
+    background-color: black;
+    color: #CB0005;
+    border: 5px inset gainsboro;  
+    font-weight: bold;    
+    box-shadow: 0 0 10px 100px #fff inset;
+
+
+
+}
+
+
