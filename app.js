@@ -39,34 +39,29 @@ function setBomb() {
 setBomb()
 let result = document.querySelector('.result')
 let points = document.querySelector('.counter')
-points.textContent = '000'
+points.textContent = '00'
 
 squares.forEach(square => {
     square.addEventListener('click', (e) => {
 
+        //BOMB
         if (e.target.innerHTML.indexOf('<i class="fa-solid fa-bomb bomb">') != -1) {
             console.log('boom')
             stop()
             changeSmile()
             e.target.style.border = '3px inset #CB0005'
-
             e.target.firstChild.style.display = 'block'
             e.target.firstChild.style.color = 'black'
             getResult('You LOST!<p>Click on the smile to play again!</p>', 'CB0005')
 
+            showBombs()
+            
 
-            squares.forEach(square => {
-                if (square.innerHTML.indexOf('<i class="fa-solid fa-bomb bomb">') != -1) {
-                    square.style.border = '3px inset gainsboro'
-                    square.firstChild.style.display = 'block'
-                    square.firstChild.style.color = 'black'
-                }
-            })
-
-
+        //ALREADY CLICKED
         } else if (e.target.style.border == '3px inset gainsboro') {
             console.log('gia fatto')
-
+        
+        //CLEAR
         } else {
             console.log('libero')
             if (countDownTimer == null) {
@@ -97,7 +92,6 @@ function changeSmile() {
     smileSad.style.display = 'block'
     smileSad.style.border = '3px inset gainsboro'
     smileSad.style.color = '#CB0005'
-    // document.body.style.backgroundColor = '#CB0005'
 }
 
 
@@ -131,9 +125,8 @@ function countDown(secondsSelected) {
         sec--;
 
         if (sec == -1) {
-            document.body.style.backgroundColor = '#CB0005'
-            result.innerHTML = `TIMEOUT!<p>Click on the smile to play again!</p>`
-            grid.style.pointerEvents = 'none'
+            getResult('You LOST!<p>Click on the smile to play again!</p>', 'CB0005')
+            showBombs()
             changeSmile()
             stop()
         }
@@ -152,8 +145,12 @@ function getResult(phrase, colorBg) {
 }
 
 
-// `You LOST!<p>Click on the smile to play again!</p>`
-
-// function showBombs() {
-//     square
-// }
+function showBombs() {
+    squares.forEach(square => {
+        if (square.innerHTML.indexOf('<i class="fa-solid fa-bomb bomb">') != -1) {
+            square.style.border = '3px inset gainsboro'
+            square.firstChild.style.display = 'block'
+            square.firstChild.style.color = 'black'
+        }
+    })
+}
