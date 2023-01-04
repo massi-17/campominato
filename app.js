@@ -72,7 +72,10 @@ squares.forEach(square => {
             addPoint()
             e.target.style.border = '3px inset gainsboro'
 
-            // getResult('You WIN!<p>Click on the smile to play again!</p>', '007A00')
+            if (points.textContent == 90) {
+                getResult('You WIN!<p>Click on the smile to play again!</p>', '007A00')
+            }
+            
         }
 
     })
