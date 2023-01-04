@@ -48,11 +48,21 @@ squares.forEach(square => {
             console.log('boom')
             stop()
             changeSmile()
-            e.target.style.border = '3px inset gainsboro'
+            e.target.style.border = '3px inset #CB0005'
+
             e.target.firstChild.style.display = 'block'
             e.target.firstChild.style.color = 'black'
-            result.innerHTML = `You LOST!<p>Click on the smile to play again!</p>`
-            grid.style.pointerEvents = 'none'
+            getResult('You LOST!<p>Click on the smile to play again!</p>', 'CB0005')
+
+
+            squares.forEach(square => {
+                if (square.innerHTML.indexOf('<i class="fa-solid fa-bomb bomb">') != -1) {
+                    square.style.border = '3px inset gainsboro'
+                    square.firstChild.style.display = 'block'
+                    square.firstChild.style.color = 'black'
+                }
+            })
+
 
         } else if (e.target.style.border == '3px inset gainsboro') {
             console.log('gia fatto')
@@ -66,6 +76,8 @@ squares.forEach(square => {
 
             addPoint()
             e.target.style.border = '3px inset gainsboro'
+
+            // getResult('You WIN!<p>Click on the smile to play again!</p>', '007A00')
         }
 
     })
@@ -85,7 +97,7 @@ function changeSmile() {
     smileSad.style.display = 'block'
     smileSad.style.border = '3px inset gainsboro'
     smileSad.style.color = '#CB0005'
-    document.body.style.backgroundColor = '#CB0005'
+    // document.body.style.backgroundColor = '#CB0005'
 }
 
 
@@ -133,3 +145,15 @@ function stop() {
     clearInterval(countDownTimer);
 }
 
+function getResult(phrase, colorBg) {
+    document.body.style.backgroundColor = '#' + colorBg
+    result.innerHTML = phrase
+    grid.style.pointerEvents = 'none'
+}
+
+
+// `You LOST!<p>Click on the smile to play again!</p>`
+
+// function showBombs() {
+//     square
+// }
